@@ -1,0 +1,35 @@
+<h2>{{pokemon.name}}</h2>
+<img [src]="pokemon.sprites.front_default" width=128>
+<ul>
+    <li *ngFor="let type of pokemon.types">
+        {{type.type.name}}
+    </li>
+</ul>
+<h2>Abilities:</h2>
+<ul>
+    <li *ngFor="let abilities of pokemon.abilities">
+        <a [href]="abilities.ability.url">{{abilities.ability.name}}</a>
+    </li>
+</ul>
+<h3>Stats</h3>
+<ul>
+    <li *ngFor="let stat of pokemon.stats">
+        {{stat.stat.name}} {{stat.base_stat}}
+    </li>
+</ul>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Move</th>
+            <th scope="col">Level</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let move of pokemon.moves">
+            <th scope="row">
+                {{move.move.name}}
+            </th>
+            <td>{{move.version_group_details[0].level_learned_at}}</td>
+        </tr>
+    </tbody>
+</table>

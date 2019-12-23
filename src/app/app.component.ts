@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { PokemonService } from './services/pokemon.service';
+import Pokemon from './models/Pokemon';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -8,21 +9,34 @@ import { PokemonService } from './services/pokemon.service';
 export class AppComponent {
   title = 'pokedex';
   public pokemonInput: string;
-  public pokemonData: any;
+  public pokemonData: Pokemon;
   public success: boolean = false;
+  public errorOccured: boolean = false;
+  public errorMessage: string;
+  public loading: boolean = false;
   constructor(private pokemon: PokemonService) {
-    
+
   }
   getPokemon() {
+    this.success = false;
+    this.loading = true;
     this.pokemon.getPokemon(this.pokemonInput)
-    .subscribe((data: any) => {
-      this.pokemonData = data;
-      this.success = true;
-      console.log(this.pokemonData);
+    .subscribe((data: Pokemon) => {
+      setTimeout(() => {
+        this.pokemonData = data;
+        this.success = true;
+        this.errorOccured = false;
+      }, 1000)
     },
     err => {
-      console.log(err.error);
       this.success = false;
+      this.errorOccured = true;
+      this.errorMessage = err.error.msg;
+    }, () => {
+      setTimeout(() => { this.loading = false }, 1000)
     });
+  }
+  closeAlert() {
+    console.log(document.getElementById('err-alert'))
   }
 }

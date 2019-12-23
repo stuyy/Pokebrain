@@ -5,16 +5,20 @@ import { AppComponent } from './app.component';
 import { ButtonsModule } from 'ngx-bootstrap/buttons';
 import { FormsModule } from '@angular/forms';
 import { PokemonComponent } from './components/pokemon/pokemon.component';
+import { ProgressbarModule } from 'ngx-bootstrap/progressbar';
+import { PokemonTypeComponent } from './components/pokemon-type/pokemon-type.component';
 @NgModule({
   declarations: [
     AppComponent,
-    PokemonComponent
+    PokemonComponent,
+    PokemonTypeComponent
   ],
   imports: [
     BrowserModule,
     ButtonsModule.forRoot(),
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ProgressbarModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

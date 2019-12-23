@@ -1,7 +1,21 @@
+
+<div class="alert alert-danger alert-dismissible fade show" role="alert" id="err-alert" *ngIf="errorOccured">
+  <span>{{errorMessage}}</span>
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close" (click)="closeAlert()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<h1 style="text-align: center;">Pokemon Search</h1>
 <form class="input-group mb-3 search">
   <input type="text" [(ngModel)]="pokemonInput" name="pokemonInput" class="form-control" placeholder="Enter a Pokemon">
   <div class="input-group-append">
-    <button type="button" class="btn btn-dark" (click)="getPokemon()"><i class="fas fa-search"></i></button>
+    <button type="submit" class="btn btn-dark" (click)="getPokemon()"><i class="fas fa-search"></i></button>
   </div>
 </form>
+<div  *ngIf="loading" style="width:50%; margin: 0 auto; text-align: center;">
+  <h5>Loading.... :)</h5>
+  <img src="assets/snorlax.svg" width=250>
+</div>
 <app-pokemon [pokemon]="pokemonData" *ngIf="success"></app-pokemon>
+
+<div>Icons made by <a href="https://www.flaticon.com/authors/those-icons" title="Those Icons">Those Icons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>

@@ -1,13 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import Pokemon from '../models/Pokemon';
 
-interface Pokemon {
-  name: string;
-  weight: Number;
-  height: Number;
-  base_experience: Number;
-  abilities: Array<any>;
-}
 @Injectable({
   providedIn: 'root'
 })

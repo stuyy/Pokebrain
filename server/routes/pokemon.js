@@ -5,10 +5,10 @@ const Pokemon = require('../models/Pokemon');
 
 router.get('/:pokemonName', async (req, res) => {
     let { pokemonName } = req.params;
-    console.log(pokemonName);
     try {
         let pokemonResults = await getPokemon(pokemonName);
-        res.send(pokemonResults);
+        console.log(pokemonResults.moves)
+        res.status(200).send(pokemonResults);
     }
     catch(err) {
         res.status(400).json({
@@ -21,15 +21,16 @@ async function getPokemon(name) {
     let results = await pokedex.getPokemonByName(name);
     return parseData(results);
 }
+
 function parseData(data) {
-    const { id, height, weight } = data;
+    const { id, height, weight, sprites } = data;
     const baseExp = data.base_experience;
     const name = data.name.charAt(0).toUpperCase() + data.name.substring(1).toLowerCase();
     const abilities = data.abilities
         .map(ability => {
             let abilityName = ability.ability.name
                 .split("-")
-                .map(token => token.charAt(0).toUpperCase() + token.substring(1).toLowerCase()).join(" ");
+                .map(token => capitalize(token)).join(" ");
             ability.ability.name = abilityName;
             return ability;
         });
@@ -51,7 +52,7 @@ function parseData(data) {
         return item;
     })
     return new Pokemon(
-        name, id, abilities, baseExp, height, weight, heldItems, moves, stats, types
+        name, id, abilities, baseExp, height, weight, heldItems, moves, stats, types, sprites
     )
 
 }

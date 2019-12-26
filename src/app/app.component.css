@@ -1,4 +1,24 @@
 .search {
-    width: 50%;
+    width: 90%;
     margin: 0 auto;
+}
+
+.loading {
+    width: 50%;
+    text-align: center;
+    margin: 0 auto;
+}
+.custom-select {
+    height: unset !important;
+}
+#search-input {
+    height: unset !important;
+}
+#snorlax {
+    animation: spinner-border 1.5s linear infinite;
+}
+@media (min-width: 1000px) {
+    .search {
+        width: 1000px;
+    }
 }

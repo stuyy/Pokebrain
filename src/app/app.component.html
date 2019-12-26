@@ -7,15 +7,23 @@
 </div>
 <h1 style="text-align: center;">Pokemon Search</h1>
 <form class="input-group mb-3 search">
-  <input type="text" [(ngModel)]="pokemonInput" name="pokemonInput" class="form-control" placeholder="Enter a Pokemon">
+  <div class="input-group-prepend">
+      <select class="custom-select" value="pokemon" [(ngModel)]="searchType" name="search">
+          <option value="pokemon">Pokemon</option>
+          <option value="ability">Ability</option>
+          <option value="type" >Type</option>
+          <option value="item" >Item</option>
+      </select>
+  </div>
+  <input type="text" [(ngModel)]="pokemonInput" name="pokemonInput" class="form-control" placeholder="Enter a Pokemon" id="search-input">
   <div class="input-group-append">
-    <button type="submit" class="btn btn-dark" (click)="getPokemon()"><i class="fas fa-search"></i></button>
+    <button type="submit" class="btn btn-secondary" (click)="getPokemon()">
+        <img src="/assets/pokeball.svg" width=32></button>
   </div>
 </form>
-<div  *ngIf="loading" style="width:50%; margin: 0 auto; text-align: center;">
-  <h5>Loading.... :)</h5>
-  <img src="assets/snorlax.svg" width=250>
+
+<div *ngIf="loading" class="loading">
+  <img src="assets/ball.svg" id="snorlax" width=250>
 </div>
 <app-pokemon [pokemon]="pokemonData" *ngIf="success"></app-pokemon>
-
 <div>Icons made by <a href="https://www.flaticon.com/authors/those-icons" title="Those Icons">Those Icons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>

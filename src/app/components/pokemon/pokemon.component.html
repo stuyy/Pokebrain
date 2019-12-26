@@ -1,14 +1,16 @@
 <div class="card pkmn-result">
-    <img [src]="pokemon.sprites.front_default" alt="entei" width=128>
-    <div class="card-body">
-        <h5 class="card-title">{{pokemon.name}}</h5>
-        <h6 class="card-subtitle mb-2 text-muted">
-            <span *ngFor="let type of pokemon.types">
-                <app-pokemon-type [type]="type"></app-pokemon-type>
-            </span>
-        </h6>
+    <div class="card-body pkmn-card">
+        <div>
+            <h2 class="card-title">{{pokemon.name}}</h2>
+            <h5 class="card-subtitle mb-2 text-muted">
+                <span *ngFor="let type of pokemon.types">
+                    <app-pokemon-type [type]="type"></app-pokemon-type>
+                </span>
+            </h5>
+        </div>
+        <img [src]="pokemon.sprites.front_default" alt="pokemon.name" width=150>
     </div>
-    <h5>Stats</h5>
+    <h2>Stats</h2>
     <ul class="list-group list-group-flush">
         <li *ngFor="let stat of pokemon.stats">
             {{stat.stat.name}}
@@ -18,6 +20,18 @@
             <progressbar *ngIf="stat.stat.name === 'Special Attack' || stat.stat.name === 'Special attack'" max="252" [value]="stat.base_stat" type="primary">{{stat.base_stat}}</progressbar>
             <progressbar *ngIf="stat.stat.name === 'Hp'" max="252" [value]="stat.base_stat" type="danger">{{stat.base_stat}}</progressbar>
             <progressbar *ngIf="stat.stat.name === 'Defense'" max="252" [value]="stat.base_stat" type="success">{{stat.base_stat}}</progressbar>
+        </li>
+    </ul>
+    <h2 class="mt-2">Weak Against</h2>
+    <ul class="list-group list-group-flush">
+        <li *ngFor="let weak of pokemon.weakness" [ngClass]="weak[0]">
+            {{weak[0]}} {{weak[1]}}x
+        </li>
+    </ul>
+    <h2 class="mt-2">Effective Against</h2>
+    <ul class="list-group list-group-flush">
+        <li *ngFor="let strong of pokemon.strong" [ngClass]="strong[0]">
+            {{strong[0]}} {{strong[1]}}x
         </li>
     </ul>
 </div>

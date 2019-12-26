@@ -1,5 +1,5 @@
 module.exports = class Pokemon {
-    constructor(name, id, abilities, baseExp, height, weight, heldItems, moves, stats, types, sprites) {
+    constructor(name, id, abilities, baseExp, height, weight, heldItems, moves, stats, types, sprites, weakness) {
         this.name = name;
         this.id = id;
         this.abilities = abilities;
@@ -11,5 +11,6 @@ module.exports = class Pokemon {
         this.stats = stats;
         this.types = types;
         this.sprites = sprites;
+        this.weakness = weakness;
     }
 }

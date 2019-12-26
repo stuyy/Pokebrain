@@ -4,6 +4,7 @@
     padding: 25px;
     font-size: 22px;
     margin-bottom: 50px;
+    background-color: #DCEDFF;
 }
 ul {
     list-style-type: none;
@@ -19,6 +20,13 @@ ul {
 #stats-list, #weak-list {
     border-bottom: solid 1px black;
     margin-top: 25px;
+}
+
+#stats-list li {
+    color: #505A5B;
+}
+#weak-list h2 {
+    
 }
 @media (min-width: 1000px) {
     .pkmn-result {

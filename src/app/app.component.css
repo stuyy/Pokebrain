@@ -31,6 +31,15 @@ header > h1 {
 #pokeball {
     animation: spinner-border 1.5s linear infinite;
 }
+.supporting-text {
+    font-size: 18px;
+}
+.modal-center {
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -70%);
+}
 footer {
     position: fixed;
     left: 0;

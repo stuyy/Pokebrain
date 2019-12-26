@@ -1,6 +1,6 @@
 * {
-    font-size: 30px;
-    color: #CDF5CD;
+    font-size: 26px;
+    font-weight: bold;
 }
 .ghost {
     color: purple;
@@ -12,8 +12,18 @@
     color: green;
 }
 .dark {
-    color: pink;
+    color: #565857;
 }
 .electric {
     color: yellow;
+}
+.ground {
+    color: #E1CE7A;
+}
+.psychic {
+    color: #E899DC;
+}
+
+.multiplier {
+    font-size: 20px;
 }

@@ -1,1 +1,4 @@
-<div>{{type}}</div>
+<div>
+    <span [ngClass]="type.toLowerCase()">{{type}}</span>
+    <span *ngIf="multiplier !== undefined" class="multiplier"> {{multiplier}}x</span>
+</div>

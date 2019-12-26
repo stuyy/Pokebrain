@@ -53,7 +53,7 @@ async function parseData(data) {
     });
     const multipliers = await getMultipliers(data.types);
     return new Pokemon(
-        name, id, abilities, baseExp, height, weight, heldItems, moves, stats, types, sprites, Array.from(multipliers[0]), Array.from(multipliers[1])
+        name, id, abilities, baseExp, height, weight, heldItems, moves, stats, types, sprites, Array.from(multipliers[0]).map(mult => [capitalize(mult[0]), mult[1]]), Array.from(multipliers[1]).map(mult => [capitalize(mult[0]), mult[1]])
     )
 }
 

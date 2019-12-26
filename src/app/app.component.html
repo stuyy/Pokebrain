@@ -21,7 +21,7 @@
     <input type="text" [(ngModel)]="pokemonInput" name="pokemonInput" class="form-control" placeholder="Enter a Pokemon" id="search-input">
     <div class="input-group-append">
       <button type="submit" class="btn btn-secondary" (click)="getPokemon()">
-          <img src="assets/pokeball.svg" width=32></button>
+          <img src="assets/pokeball_1.svg" width=32></button>
     </div>
   </form>
   <div *ngIf="loading" class="loading" >
@@ -30,7 +30,7 @@
   <app-pokemon [pokemon]="pokemonData" *ngIf="success"></app-pokemon>
   
   <footer>
-    <button type="button" class="btn btn-primary" (click)="openModal(template)" style="width: 100%;">Credits</button>
+    <button type="button" class="btn btn-secondary" (click)="openModal(template)" style="width: 100%; font-size: 28px;">Credits</button>
     <ng-template #template>
       <div class="modal-header">
         <h4 class="modal-title pull-left">Special Thanks To Flaticons</h4>
@@ -40,8 +40,14 @@
       </div>
       <div class="modal-body">
         <div>Icons made by <a href="https://www.flaticon.com/authors/those-icons" title="Those Icons">Those Icons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
-        </div>
         <div>Icons made by <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+        <div>Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+        <hr>
+        <div class="supporting-text">
+          <p>Pokebrain is a simple application that allows you to pull data about any Pokemon (currently does not support Generation 8 Pokemon from Sword and Shield).</p>
+          <span>View the source code on GitHub: <a href="https://github.com/ansonfoong/Pokebrain" target="_blank"><i class="fas fa-code-branch"></i></a></span>
+        </div>
+      </div>
     </ng-template>
   </footer>
 </div>

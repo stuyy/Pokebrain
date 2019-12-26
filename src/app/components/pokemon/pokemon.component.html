@@ -29,7 +29,7 @@
         <h2 class="mt-2">Weak Against</h2>
         <ul class="list-group list-group-flush">
             <li *ngFor="let weak of pokemon.weakness" [ngClass]="weak[0]">
-                {{weak[0]}} {{weak[1]}}x
+                <app-pokemon-type [type]="weak[0]" [multiplier]="weak[1]"></app-pokemon-type>
             </li>
         </ul>
         <br>

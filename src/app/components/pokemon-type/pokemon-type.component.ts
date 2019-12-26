@@ -8,11 +8,13 @@ import { Component, OnInit, Input } from '@angular/core';
 export class PokemonTypeComponent implements OnInit {
 
   @Input() type: string;
+  @Input() multiplier: string;
 
   constructor() { }
 
   ngOnInit() {
     console.log(this.type);
+    console.log(this.multiplier);
   }
 
 }

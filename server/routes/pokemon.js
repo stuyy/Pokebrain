@@ -7,7 +7,7 @@ router.get('/:pokemonName', async (req, res) => {
     let { pokemonName } = req.params;
     try {
         let pokemonResults = await getPokemon(pokemonName);
-        console.log(pokemonResults)
+        console.log(pokemonResults.weakness)
         res.status(200).send(pokemonResults);
     }
     catch(err) {
@@ -53,7 +53,7 @@ async function parseData(data) {
     });
     const multipliers = await getMultipliers(data.types);
     return new Pokemon(
-        name, id, abilities, baseExp, height, weight, heldItems, moves, stats, types, sprites, multipliers[0]
+        name, id, abilities, baseExp, height, weight, heldItems, moves, stats, types, sprites, Array.from(multipliers[0]), Array.from(multipliers[1])
     )
 }
 

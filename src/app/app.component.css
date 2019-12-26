@@ -1,8 +1,22 @@
+
+header {
+    display: flex;
+    justify-content:center;
+    width: 50%;
+    margin: 0 auto;
+    padding: 25px;
+}
+header h1 {
+    font-size: 64px;
+}
+
+header > h1 {
+    padding: 15px;
+}
 .search {
     width: 90%;
     margin: 0 auto;
 }
-
 .loading {
     width: 50%;
     text-align: center;
@@ -14,11 +28,20 @@
 #search-input {
     height: unset !important;
 }
-#snorlax {
+#pokeball {
     animation: spinner-border 1.5s linear infinite;
 }
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    color: white;
+    text-align: center;
+    overflow: hidden;
+}
 @media (min-width: 1000px) {
-    .search {
+    .search, header {
         width: 1000px;
     }
 }

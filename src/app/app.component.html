@@ -1,29 +1,47 @@
-
-<div class="alert alert-danger alert-dismissible fade show" role="alert" id="err-alert" *ngIf="errorOccured">
-  <span>{{errorMessage}}</span>
-  <button type="button" class="close" data-dismiss="alert" aria-label="Close" (click)="closeAlert()">
-    <span aria-hidden="true">&times;</span>
-  </button>
-</div>
-<h1 style="text-align: center;">Pokemon Search</h1>
-<form class="input-group mb-3 search">
-  <div class="input-group-prepend">
-      <select class="custom-select" value="pokemon" [(ngModel)]="searchType" name="search">
-          <option value="pokemon">Pokemon</option>
-          <option value="ability">Ability</option>
-          <option value="type" >Type</option>
-          <option value="item" >Item</option>
-      </select>
+<div>
+  <div class="alert alert-danger alert-dismissible fade show" role="alert" id="err-alert" *ngIf="errorOccured">
+    <span>{{errorMessage}}</span>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
   </div>
-  <input type="text" [(ngModel)]="pokemonInput" name="pokemonInput" class="form-control" placeholder="Enter a Pokemon" id="search-input">
-  <div class="input-group-append">
-    <button type="submit" class="btn btn-secondary" (click)="getPokemon()">
-        <img src="/assets/pokeball.svg" width=32></button>
+  <header>
+    <img src="assets/pikachu.svg" width=64>
+    <h1>PokéBrain</h1>
+  </header>
+  <form class="input-group mb-3 search">
+    <div class="input-group-prepend">
+        <select class="custom-select" value="pokemon" [(ngModel)]="searchType" name="search">
+            <option value="pokemon">Pokemon</option>
+            <option value="ability" disabled>Ability</option>
+            <option value="type" disabled>Type</option>
+            <option value="item" disabled>Item</option>
+        </select>
+    </div>
+    <input type="text" [(ngModel)]="pokemonInput" name="pokemonInput" class="form-control" placeholder="Enter a Pokemon" id="search-input">
+    <div class="input-group-append">
+      <button type="submit" class="btn btn-secondary" (click)="getPokemon()">
+          <img src="assets/pokeball.svg" width=32></button>
+    </div>
+  </form>
+  <div *ngIf="loading" class="loading" >
+    <img src="assets/ball.svg" id="pokeball" width=250>
   </div>
-</form>
-
-<div *ngIf="loading" class="loading">
-  <img src="assets/ball.svg" id="snorlax" width=250>
+  <app-pokemon [pokemon]="pokemonData" *ngIf="success"></app-pokemon>
+  
+  <footer>
+    <button type="button" class="btn btn-primary" (click)="openModal(template)" style="width: 100%;">Credits</button>
+    <ng-template #template>
+      <div class="modal-header">
+        <h4 class="modal-title pull-left">Special Thanks To Flaticons</h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div>Icons made by <a href="https://www.flaticon.com/authors/those-icons" title="Those Icons">Those Icons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+        </div>
+        <div>Icons made by <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+    </ng-template>
+  </footer>
 </div>
-<app-pokemon [pokemon]="pokemonData" *ngIf="success"></app-pokemon>
-<div>Icons made by <a href="https://www.flaticon.com/authors/those-icons" title="Those Icons">Those Icons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>

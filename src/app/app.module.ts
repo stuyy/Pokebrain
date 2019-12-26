@@ -7,6 +7,7 @@ import { FormsModule } from '@angular/forms';
 import { PokemonComponent } from './components/pokemon/pokemon.component';
 import { ProgressbarModule } from 'ngx-bootstrap/progressbar';
 import { PokemonTypeComponent } from './components/pokemon-type/pokemon-type.component';
+import { ModalModule } from 'ngx-bootstrap/modal';
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,7 +19,8 @@ import { PokemonTypeComponent } from './components/pokemon-type/pokemon-type.com
     ButtonsModule.forRoot(),
     HttpClientModule,
     FormsModule,
-    ProgressbarModule.forRoot()
+    ProgressbarModule.forRoot(),
+    ModalModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

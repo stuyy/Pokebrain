@@ -9,13 +9,14 @@ import Pokemon from 'src/app/models/Pokemon';
 export class PokemonComponent implements OnInit {
 
   @Input() pokemon;
-
+  public typeBackgroundColor: string = '';
   constructor() {
     
   }
 
   ngOnInit() {
-    console.log(this.pokemon.stats)
+    console.log(this.pokemon)
+    this.typeBackgroundColor = this.pokemon.types[0].toLowerCase() + "-bg";
   }
 
 }

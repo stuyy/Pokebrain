@@ -12,7 +12,7 @@ export class PokemonTypeComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    
+    console.log(this.type);
   }
 
 }

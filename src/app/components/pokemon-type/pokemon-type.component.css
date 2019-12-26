@@ -1,3 +1,7 @@
+* {
+    font-size: 30px;
+    color: #CDF5CD;
+}
 .ghost {
     color: purple;
 }
@@ -6,4 +10,10 @@
 }
 .grass {
     color: green;
+}
+.dark {
+    color: pink;
+}
+.electric {
+    color: yellow;
 }

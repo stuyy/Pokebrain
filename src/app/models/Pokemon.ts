@@ -9,4 +9,6 @@ export default class Pokemon {
     moves: Array<Object>;
     stats: Array<Object>;
     types: Array<Object>;
+    weakness: any;
+    strong: any;
 }

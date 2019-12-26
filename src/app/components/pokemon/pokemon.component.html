@@ -1,7 +1,7 @@
-<div class="card pkmn-result">
+<div class="card pkmn-result"  [ngClass]="typeBackgroundColor">
     <div class="card-body pkmn-card">
         <div>
-            <h2 class="card-title">{{pokemon.name}}</h2>
+            <h1 class="card-title">{{pokemon.name}}</h1>
             <h5 class="card-subtitle mb-2 text-muted">
                 <span *ngFor="let type of pokemon.types">
                     <app-pokemon-type [type]="type"></app-pokemon-type>
@@ -10,30 +10,38 @@
         </div>
         <img [src]="pokemon.sprites.front_default" alt="pokemon.name" width=150>
     </div>
-    <h2>Stats</h2>
-    <ul class="list-group list-group-flush">
-        <li *ngFor="let stat of pokemon.stats">
-            {{stat.stat.name}}
-            <progressbar *ngIf="stat.stat.name === 'Speed'" max="252" [value]="stat.base_stat" type="danger">{{stat.base_stat}}</progressbar>
-            <progressbar *ngIf="stat.stat.name === 'Special Defense' || stat.stat.name === 'Special defense'" max="252" [value]="stat.base_stat" type="success">{{stat.base_stat}}</progressbar>
-            <progressbar *ngIf="stat.stat.name === 'Attack'" max="252" [value]="stat.base_stat" type="warning">{{stat.base_stat}}</progressbar>
-            <progressbar *ngIf="stat.stat.name === 'Special Attack' || stat.stat.name === 'Special attack'" max="252" [value]="stat.base_stat" type="primary">{{stat.base_stat}}</progressbar>
-            <progressbar *ngIf="stat.stat.name === 'Hp'" max="252" [value]="stat.base_stat" type="danger">{{stat.base_stat}}</progressbar>
-            <progressbar *ngIf="stat.stat.name === 'Defense'" max="252" [value]="stat.base_stat" type="success">{{stat.base_stat}}</progressbar>
-        </li>
-    </ul>
-    <h2 class="mt-2">Weak Against</h2>
-    <ul class="list-group list-group-flush">
-        <li *ngFor="let weak of pokemon.weakness" [ngClass]="weak[0]">
-            {{weak[0]}} {{weak[1]}}x
-        </li>
-    </ul>
-    <h2 class="mt-2">Effective Against</h2>
-    <ul class="list-group list-group-flush">
-        <li *ngFor="let strong of pokemon.strong" [ngClass]="strong[0]">
-            {{strong[0]}} {{strong[1]}}x
-        </li>
-    </ul>
+    <div id="stats-list">
+        <h2 class="mt-4">Stats</h2>
+        <ul class="list-group list-group-flush">
+            <li *ngFor="let stat of pokemon.stats">
+                {{stat.stat.name}}
+                <progressbar *ngIf="stat.stat.name === 'Speed'" max="252" [value]="stat.base_stat" type="danger">{{stat.base_stat}}</progressbar>
+                <progressbar *ngIf="stat.stat.name === 'Special Defense' || stat.stat.name === 'Special defense'" max="252" [value]="stat.base_stat" type="success">{{stat.base_stat}}</progressbar>
+                <progressbar *ngIf="stat.stat.name === 'Attack'" max="252" [value]="stat.base_stat" type="warning">{{stat.base_stat}}</progressbar>
+                <progressbar *ngIf="stat.stat.name === 'Special Attack' || stat.stat.name === 'Special attack'" max="252" [value]="stat.base_stat" type="primary">{{stat.base_stat}}</progressbar>
+                <progressbar *ngIf="stat.stat.name === 'Hp'" max="252" [value]="stat.base_stat" type="danger">{{stat.base_stat}}</progressbar>
+                <progressbar *ngIf="stat.stat.name === 'Defense'" max="252" [value]="stat.base_stat" type="success">{{stat.base_stat}}</progressbar>
+            </li>
+        </ul>
+        <br>
+    </div>
+    <div id="weak-list">
+        <h2 class="mt-2">Weak Against</h2>
+        <ul class="list-group list-group-flush">
+            <li *ngFor="let weak of pokemon.weakness" [ngClass]="weak[0]">
+                {{weak[0]}} {{weak[1]}}x
+            </li>
+        </ul>
+        <br>
+    </div>
+    <div id="strong-list">
+        <h2 class="mt-2">Effective Against</h2>
+        <ul class="list-group list-group-flush">
+            <li *ngFor="let strong of pokemon.strong" [ngClass]="strong[0]">
+                {{strong[0]}} {{strong[1]}}x
+            </li>
+        </ul>
+    </div>
 </div>
 <!-- 
 <table class="table">

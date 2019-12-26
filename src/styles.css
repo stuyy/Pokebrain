@@ -1,6 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
 @import url('https://fonts.googleapis.com/css?family=Noto+Sans&display=swap');
-
+@import url('https://fonts.googleapis.com/css?family=Kulim+Park&display=swap');
 * {
-    font-family: 'Noto Sans'
+    font-family: 'Kulim Park'
+}
+
+body {
+    background-color: #BFCDE0;
 }
